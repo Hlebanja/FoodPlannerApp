@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="se.chalmers.cse.dit341.group00">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".Ingredient.PatchIngredientActivity"
+            android:parentActivityName=".Ingredient.GetOneIngredientActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.chalmers.cse.dit341.group00.Ingredient.GetOneIngredientActivity" />
+        </activity>
+        <activity
+            android:name=".Ingredient.PutIngredientActivity"
+            android:parentActivityName=".Ingredient.GetOneIngredientActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.chalmers.cse.dit341.group00.Ingredient.GetOneIngredientActivity" />
+        </activity>
+        <activity
+            android:name=".Ingredient.PostIngredientActivity"
+            android:parentActivityName=".Ingredient.IngredientActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.chalmers.cse.dit341.group00.Ingredient.IngredientActivity" />
+        </activity>
+        <activity
+            android:name=".Ingredient.GetOneIngredientActivity"
+            android:parentActivityName=".Ingredient.IngredientActivity"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.chalmers.cse.dit341.group00.Ingredient.IngredientActivity" />
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Ingredient.IngredientActivity"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.chalmers.cse.dit341.group00.MainActivity" />
+        </activity>
+
+
+        <activity android:name=".Recipe.RecipeActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Recipe.GetOneRecipeActivity"
+            android:parentActivityName=".Recipe.RecipeActivity"/>
+        <activity android:name=".Recipe.PatchRecipeActivity"
+            android:parentActivityName=".Recipe.GetOneRecipeActivity"
+            />
+        <activity android:name=".Recipe.PostRecipeActivity"
+            android:parentActivityName=".Recipe.RecipeActivity"/>
+        <activity android:name=".Recipe.PutRecipeActivity"
+            android:parentActivityName=".Recipe.GetOneRecipeActivity"/>
+
+
+        <activity android:name=".User.GetOneUserActivity"
+            android:parentActivityName=".User.UserActivity"/>
+        <activity android:name=".User.PatchUserActivity"
+            android:parentActivityName=".User.GetOneUserActivity" />
+        <activity android:name=".User.PostUserActivity"
+            android:parentActivityName=".User.UserActivity"/>
+        <activity android:name=".User.PutUserActivity"
+            android:parentActivityName=".User.GetOneUserActivity"/>
+        <activity android:name=".User.UserActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:parentActivityName=".MainActivity"/>
+
+
+    </application>
+
+</manifest>
