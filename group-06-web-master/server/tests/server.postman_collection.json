@@ -1,0 +1,1250 @@
+{
+	"info": {
+		"_postman_id": "830f3992-ad25-4090-a7dd-60e4cc515e3e",
+		"name": "server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ingredients",
+			"item": [
+				{
+					"name": "ingredient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "927025af-5584-4888-a286-730662635095",
+								"exec": [
+									"// Save and read environment variables",
+									"",
+									"// 1) Create an environment in Postman:",
+									"// https://www.getpostman.com/docs/v6/postman/environments_and_globals/manage_environments",
+									"",
+									"// 2) Save response data in environment variable",
+									"var jsonData = pm.response.json();",
+									"var ingredientId = jsonData.ingredient[0]._id;",
+									"pm.environment.set(\"ingredient_id\", ingredientId);",
+									"",
+									"// 3) Use variable in later requests via {{variable}}",
+									"// GET {{host}}/api/ingredients/{{ingredient_id}}",
+									"var getIngredientId = pm.variables.get(\"ingredient_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"tuna\",\n  \"description\": \"nutrients\",\n  \"nutritionalInfo\": \"healthy\"\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/api/ingredients",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ingredients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "927025af-5584-4888-a286-730662635095",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/ingredients?=",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ingredients"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ingredients/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "927025af-5584-4888-a286-730662635095",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/ingredients/{{ingredient_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"{{ingredient_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ingredients/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9728f5aa-c8a3-4480-87bd-4f6e29dd59e8",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"var ingredientId = jsonData._id;",
+									"pm.environment.set(\"ingredient_id\", ingredientId);",
+									"",
+									"",
+									"var getIngredientId = pm.variables.get(\"ingredient_id\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"meat\",\n\t\"description\": \"carbs\",\n\t\"nutritionalInfo\": \"healthy\"\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/api/ingredients/{{ingredient_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"{{ingredient_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ingredients/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "adf537fb-1a89-42a6-a3d4-1946c3cb6283",
+								"exec": [
+									"",
+									"var jsonData = pm.response.json();",
+									"var ingredientId = jsonData._id;",
+									"pm.environment.set(\"ingredient_id\", ingredientId);",
+									"",
+									"// 3) Use variable in later requests via {{variable}}",
+									"// GET {{host}}/api/ingredients/{{ingredient_id}}",
+									"var getIngredientId = pm.variables.get(\"ingredient_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"partially updated salmon\",\n\t\"description\":\"protein\"\n\t\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/api/ingredients/{{ingredient_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"{{ingredient_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ingredients/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "659f1ed5-766a-48ec-a3e0-f3af6bac069f",
+								"exec": [
+									"// Save and read environment variables",
+									"",
+									"// 1) Create an environment in Postman:",
+									"// https://www.getpostman.com/docs/v6/postman/environments_and_globals/manage_environments",
+									"",
+									"// 2) Save response data in environment variable",
+									"var jsonData = pm.response.json();",
+									"var ingredientId = jsonData._id",
+									"pm.environment.set(\"ingredient_id\", ingredientId);",
+									"",
+									"// 3) Use variable in later requests via {{variable}}",
+									"// GET {{host}}/api/ingredients/{{ingredient_id}}",
+									"var ingredientId = pm.variables.get(\"ingredient_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/ingredients/{{ingredient_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"{{ingredient_id}}"
+							]
+						},
+						"description": "Delete all recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "ingredients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "659f1ed5-766a-48ec-a3e0-f3af6bac069f",
+								"exec": [
+									"// Save and read environment variables",
+									"",
+									"// 1) Create an environment in Postman:",
+									"// https://www.getpostman.com/docs/v6/postman/environments_and_globals/manage_environments",
+									"",
+									"// 2) Save response data in environment variable",
+									"var jsonData = pm.response.json();",
+									"var ingredientId = jsonData._id",
+									"pm.environment.set(\"ingredient_id\", ingredientId);",
+									"",
+									"// 3) Use variable in later requests via {{variable}}",
+									"// GET {{host}}/api/ingredients/{{ingredient_id}}",
+									"var ingredientId = pm.variables.get(\"ingredient_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/ingredients",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ingredients"
+							]
+						},
+						"description": "Delete all recipes"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "recipes",
+			"item": [
+				{
+					"name": "recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a51a114-cea5-438e-bd05-428bfddf721c",
+								"exec": [
+									"",
+									"var jsonData = pm.response.json();",
+									"var recipeId = jsonData._id;",
+									"pm.environment.set(\"recipe_id\", recipeId);",
+									"",
+									"",
+									"var getRecipeId = pm.variables.get(\"recipe_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"cucumber salad\",\n\t\"description\":\"carbs and nutrients\",\n\t\"nutritionalInfo\":\"healthy\",\n\t\"ingredients\": [\n\t]\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":recipe_id/ingredients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "499381a6-b293-45d5-b8a9-aa81ca1a8472",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"var ingredientId = jsonData",
+									"pm.environment.set(\"ingredient_id\", ingredientId);",
+									"",
+									"var getIngredientId = pm.variables.get(\"ingredient_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"tuna\",\n  \"description\": \"carbs\",\n  \"nutritionalInfo\": \"healthy\"\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes/{{recipe_id}}/ingredients",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recipes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes?=",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recipes/:recipe_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes/{{recipe_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						},
+						"description": "Get a recipe by id"
+					},
+					"response": []
+				},
+				{
+					"name": ":recipe_id/ingredients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes/{{recipe_id}}/ingredients/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}",
+								"ingredients",
+								""
+							]
+						},
+						"description": "return specific ingredient from a recipe"
+					},
+					"response": []
+				},
+				{
+					"name": ":recipe_id/ingredients/:ingredient_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes/{{recipe_id}}/ingredients/{{ingredient_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}",
+								"ingredients",
+								"{{ingredient_id}}"
+							]
+						},
+						"description": "return specific ingredient from a recipe"
+					},
+					"response": []
+				},
+				{
+					"name": "recipes/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9728f5aa-c8a3-4480-87bd-4f6e29dd59e8",
+								"exec": [
+									"",
+									"var jsonData = pm.response.json();",
+									"var recipeId = jsonData._id;",
+									"pm.environment.set(\"recipe_id\", recipeId);",
+									"",
+									"",
+									"var getRecipeId = pm.variables.get(\"recipe_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"rice and beans\",\n\t\"description\":\"carbs and protein\",\n\t\"nutritionalInfo\":\"healthy\",\n\t\"ingredients\": [\n\t\t{\n\t\t\t\"_id\": \"5d88abaef5152b17134ea478\",\n    \t\t\"name\": \"macarroni\",\n    \t\t\"description\": \"carbs\",\n    \t\t\"nutritionalInfo\": \"healthy\"\n\t\t},\n\t\t{\n\t\t\t\"_id\": \"5d88abaef5152b17134ea479\",\n    \t\t\"name\": \"macarroni\",\n    \t\t\"description\": \"carbs\",\n    \t\t\"nutritionalInfo\": \"healthy\"\n\t\t}\n\t]\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes/{{recipe_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recipes/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "78a920db-478c-4b17-8a67-9bdddff810a8",
+								"exec": [
+									"",
+									"var jsonData = pm.response.json();",
+									"var recipeId = jsonData._id;",
+									"pm.environment.set(\"recipe_id\", recipeId);",
+									"",
+									"",
+									"var getRecipeId = pm.variables.get(\"recipe_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"tuna mix\",\n    \"description\": \"\",\n    \"nutritionalInfo\": \"unhealthy\",\n    \"ingredients\": [\n        {\n            \"_id\": \"5daf262a47367a5e1da95ed6\",\n            \"name\": \"tuna\",\n            \"description\": \"carbs\",\n            \"nutritionalInfo\": \"healthy\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"5daf262b47367a5e1da95ed7\",\n            \"name\": \"tuna\",\n            \"description\": \"carbs\",\n            \"nutritionalInfo\": \"healthy\",\n            \"__v\": 0\n        }\n    ],\n    \"_id\": \"5daf262847367a5e1da95ed5\",\n    \"__v\": 2\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes/{{recipe_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":recipe_id/ingredients/:ingredient_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "659f1ed5-766a-48ec-a3e0-f3af6bac069f",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"var ingredientId = jsonData._id;",
+									"pm.environment.set(\"ingredient_id\", ingredientId);",
+									"",
+									"var ingredientId = pm.variables.get(\"ingredient_id\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes/{{recipe_id}}/ingredients/{{ingredient_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}",
+								"ingredients",
+								"{{ingredient_id}}"
+							]
+						},
+						"description": "Delete all recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "recipes/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "659f1ed5-766a-48ec-a3e0-f3af6bac069f",
+								"exec": [
+									"// Save and read environment variables",
+									"",
+									"// 1) Create an environment in Postman:",
+									"// https://www.getpostman.com/docs/v6/postman/environments_and_globals/manage_environments",
+									"",
+									"// 2) Save response data in environment variable",
+									"var jsonData = pm.response.json();",
+									"var recipeId = jsonData._id;",
+									"pm.environment.set(\"recipe_id\", recipeId);",
+									"",
+									"// 3) Use variable in later requests via {{variable}}",
+									"// GET {{host}}/api/ingredients/{{ingredient_id}}",
+									"var recipeId = pm.variables.get(\"recipe_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes/{{recipe_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						},
+						"description": "Delete all recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "recipes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "659f1ed5-766a-48ec-a3e0-f3af6bac069f",
+								"exec": [
+									"// Save and read environment variables",
+									"",
+									"// 1) Create an environment in Postman:",
+									"// https://www.getpostman.com/docs/v6/postman/environments_and_globals/manage_environments",
+									"",
+									"// 2) Save response data in environment variable",
+									"var jsonData = pm.response.json();",
+									"var recipeId = jsonData._id;",
+									"pm.environment.set(\"recipe_id\", recipeId);",
+									"",
+									"// 3) Use variable in later requests via {{variable}}",
+									"// GET {{host}}/api/ingredients/{{ingredient_id}}",
+									"var recipeId = pm.variables.get(\"recipe_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/recipes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							]
+						},
+						"description": "Delete all recipes"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "feedbacks",
+			"item": [
+				{
+					"name": "feedback",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9d2f9592-8cba-48e7-95bc-5037fc40f420",
+								"exec": [
+									"// Save and read environment variables",
+									"",
+									"// 1) Create an environment in Postman:",
+									"// https://www.getpostman.com/docs/v6/postman/environments_and_globals/manage_environments",
+									"",
+									"// 2) Save response data in environment variable",
+									"var jsonData = pm.response.json();",
+									"var feedbackId = jsonData._id;",
+									"pm.environment.set(\"feedback_id\", feedbackId);",
+									"",
+									"// 3) Use variable in later requests via {{variable}}",
+									"// GET {{host}}/api/ingredients/{{ingredient_id}}",
+									"var getFeedbackId = pm.variables.get(\"feedback_id\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Amazing food!\",\n\t\"date\": \"23/09/2019\",\n\t\"content\": \"This recipe is easy to make and healthy\"\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/api/feedbacks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"feedbacks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "feedbacks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/feedbacks?=",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"feedbacks"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admins",
+			"item": [
+				{
+					"name": "admins",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3381e883-58e2-4615-8df8-9587d49c1000",
+								"exec": [
+									"// Save and read environment variables",
+									"",
+									"// 1) Create an environment in Postman:",
+									"// https://www.getpostman.com/docs/v6/postman/environments_and_globals/manage_environments",
+									"",
+									"// 2) Save response data in environment variable",
+									"var jsonData = pm.response.json();",
+									"var adminId = jsonData._id;",
+									"pm.environment.set(\"admin_id\", adminId);",
+									"",
+									"// 3) Use variable in later requests via {{variable}}",
+									"// GET {{host}}/api/ingredients/{{ingredient_id}}",
+									"var getAdminId = pm.variables.get(\"admin_id\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Adam\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/admins",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"admins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/admins?=",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"admins"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3388252e-f84b-439b-b633-dfccaeb0450a",
+								"exec": [
+									"",
+									"var jsonData = pm.response.json();",
+									"var userId = jsonData._id;",
+									"pm.environment.set(\"user_id\", userId);",
+									"",
+									"",
+									"var getUserId = pm.variables.get(\"user_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Hassan\",\n\t\"email\":\"peter@gmail.com\",\n\t\"password\":\"12345\"\n\t\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/users?=",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WeeklyPlans",
+			"item": [
+				{
+					"name": "weeklyPlan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e92d6522-5783-4fae-8a7c-50b33a465008",
+								"exec": [
+									"",
+									"",
+									"",
+									"var jsonData = pm.response.json();",
+									"var weeklyPlanId = jsonData._id;",
+									"pm.environment.set(\"weeklyPlan_id\", weeklyPlanId);",
+									"",
+									"// 3) Use variable in later requests via {{variable}}",
+									"// GET {{host}}/api/ingredients/{{ingredient_id}}",
+									"var getWeeklyPlanId = pm.variables.get(\"weeklyPlan_id\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"days\": \"7\",\n\t\"weeks\": \"week one\"\n\t\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/api/weeklyPlans",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"weeklyPlans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "weeklyPlans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/weeklyPlans",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"weeklyPlans"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7e800163-8a55-4e5e-9612-c424073c185b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ee0c97da-ae53-475a-9016-45bcfd424105",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cd185905-a834-4211-8030-583d17702534",
+			"key": "host",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
