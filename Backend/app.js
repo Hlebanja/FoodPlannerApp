@@ -11,7 +11,6 @@ var path = require('path');
 var cors = require('cors');
 var history = require('connect-history-api-fallback');
 
-var camelsController = require('./controllers/camels');
 var ingredientsController = require('./controllers/ingredients');
 var recipesController = require('./controllers/recipes');
 var adminsController = require('./controllers/admins');
@@ -45,9 +44,8 @@ app.use(cors());
 
 // Define routes
 app.get('/api', function(req, res) {
-    res.json({'message': 'Welcome to your DIT341 backend ExpressJS project!'});
+    res.json({'Greetings': 'Welcome to your RESTful API!'});
 });
-app.use('/api/camels', camelsController);
 app.use('/api/ingredients', ingredientsController);
 app.use('/api/recipes', recipesController);
 app.use('/api/admins', adminsController);
