@@ -1,6 +1,9 @@
 # FoodPlannerApp
-Basic recipe and ingredients manager, including a express API with mongoose and an android app to interact with the API.
-The API is tested through the usage of POSTMAN.
+Originally a recipe and ingredients manager, this project has been limited to the creation of a RESTful API with JavaScript on Node.js, using EXPRESS and MongoDB. 
+
+It also includes an android app to interact with the aforementioned API. This app utilized Java for the logic and the Volley library for the http requests.
+
+In RESTful_API-FoodPlanner/Backend/tests, there are also some scripts for tests through the usage of POSTMAN.
 
 ## Usage
 In order to use the app, you first must:
